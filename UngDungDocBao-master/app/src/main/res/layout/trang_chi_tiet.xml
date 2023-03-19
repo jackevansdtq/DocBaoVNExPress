@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.TrangChiTiet">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/ng_y_xu_t_b_n"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNgayDang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintStart_toEndOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/txt_title_detail"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_detail"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="409dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp">
+
+            <ImageView
+                android:id="@+id/imgDetail"
+                android:layout_width="360dp"
+                android:layout_height="301dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="TODO"
+                android:focusableInTouchMode="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="@+id/txt_motangan"
+                app:layout_constraintStart_toStartOf="@+id/txt_motangan"
+                app:layout_constraintTop_toBottomOf="@+id/txt_motangan"
+                app:srcCompat="@drawable/no_img" />
+
+            <TextView
+                android:id="@+id/txt_motangan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_tieudeHA"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Hình ảnh mang tính chất minh họa"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/imgDetail"
+                app:layout_constraintStart_toStartOf="@+id/imgDetail"
+                app:layout_constraintTop_toBottomOf="@+id/imgDetail" />
+
+            <TextView
+                android:id="@+id/txt_noidung"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/txt_motangan"
+                app:layout_constraintStart_toStartOf="@+id/txt_motangan"
+                app:layout_constraintTop_toBottomOf="@+id/txt_tieudeHA" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Bình luận"
+                app:layout_constraintStart_toStartOf="@+id/txt_noidung"
+                app:layout_constraintTop_toBottomOf="@+id/txt_tacgia" />
+
+            <EditText
+                android:id="@+id/edit_binhluan"
+                android:layout_width="255dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:ems="10"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+            <ImageButton
+                android:id="@+id/img_dangBL"
+                android:layout_width="46dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/design_default_color_secondary_variant"
+                android:onClick="dangBL"
+                app:layout_constraintEnd_toEndOf="@+id/txt_noidung"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/edit_binhluan"
+                app:layout_constraintTop_toTopOf="@+id/edit_binhluan"
+                app:srcCompat="@android:drawable/ic_menu_send" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_list_cmt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_binhluan" />
+
+            <TextView
+                android:id="@+id/txt_tacgia"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="TextView"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="@+id/txt_noidung"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_noidung" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Lượt xem"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtNgayDang"
+        app:layout_constraintStart_toEndOf="@+id/txtNgayDang" />
+
+    <TextView
+        android:id="@+id/txt_luotxem"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
